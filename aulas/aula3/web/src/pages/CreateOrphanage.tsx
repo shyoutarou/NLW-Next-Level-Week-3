@@ -85,7 +85,7 @@ export default function CreateOrphanage() {
             <legend>Dados</legend>
 
             <Map 
-              center={[-23.586173,-46.598032]} 
+              center={[-23.539417,-46.560972]} 
               style={{ width: '100%', height: 280 }}
               zoom={15}
               onClick={handleMapClick}
@@ -190,4 +190,3 @@ export default function CreateOrphanage() {
   );
 }
 
-// return `https://a.tile.openstreetmap.org/${z}/${x}/${y}.png`;
