@@ -14,7 +14,7 @@
 </h2>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/shyoutarou/NLW-Next-Level-Week-3/master/.github/HappyLogo.png" alt="Happy Logo" width="90%" />
+  <img src="https://raw.githubusercontent.com/shyoutarou/NLW-Next-Level-Week-3/master/.github/HappyLogo.png" alt="Happy Logo" width="80%" />
 </p>
 
 ## 📌 Index
@@ -114,16 +114,16 @@ Desenvolvimento do projeto Next Level Week 3, desenvolvido pela Rocketseat.
 
 ## 📸 Screenshots
 
-### Web com ReactJS
+### Web Interface com ReactJS
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/shyoutarou/NLW-Next-Level-Week-3/master/.github/demo_web.gif" alt="Happy Web" width="90%" />
+  <img src="https://raw.githubusercontent.com/shyoutarou/NLW-Next-Level-Week-3/master/.github/demo_web.gif" alt="Happy Web" width="100%" />
 </p>
 
 ### Mobile Interface com React Native
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/shyoutarou/NLW-Next-Level-Week-3/master/.github/demo_mobile.gif" alt="Happy Mobiel" width="90%" />
+  <img src="https://raw.githubusercontent.com/shyoutarou/NLW-Next-Level-Week-3/master/.github/demo_mobile.gif" alt="Happy Mobiel" width="28%" />
 </p>
 
 <h2 align="left"> 📥 Figma layout available for download at: </h2>
