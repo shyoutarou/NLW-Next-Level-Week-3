@@ -10,6 +10,7 @@ import mapIcon from '../utils/mapIcon';
 import whatsappIcon from '../images/whatsapp.svg';
 import { useParams } from "react-router-dom";
 import api from "../services/api";
+import { toast } from "react-toastify";
 
 interface Orphanage {
   latitude: number;
@@ -37,9 +38,18 @@ export default function Orphanage() {
   const [activeImageIndex, setActiveImageIndex] = useState(0);
 
   useEffect(() => {
-    api.get(`orphanages/${params.id}`).then(response => {
-      setOrphanage(response.data);
-    });
+
+    try {
+
+      api.get(`orphanages/${params.id}`).then(response => {
+        setOrphanage(response.data);
+      });
+
+    } catch(e) {
+
+      toast.error('Ocorreu um erro ao recuperar o orfanato');
+    }
+
   }, [params.id]);
   
   

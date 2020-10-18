@@ -10,6 +10,7 @@ import '../styles/pages/orphanages-map.css'
 import mapMarkerImg from '../images/map-marker.svg';
 import mapIcon from '../utils/mapIcon';
 import api from '../services/api';
+import { toast } from 'react-toastify';
 
 interface Orphanage {
     id: number;
@@ -23,9 +24,18 @@ function OrphanagesMap() {
     const [orphanages, setOrphanages] = useState<Orphanage[]>([]);
 
     useEffect(() => {
-      api.get('orphanages').then(response => {
-        setOrphanages(response.data);
-      });
+
+      try {
+
+        api.get('orphanages').then(response => {
+          setOrphanages(response.data);
+        });
+  
+      } catch(e) {
+  
+        toast.error('Ocorreu um erro ao recuperar os orfanatos');
+      }
+
     }, []);
 
     return (

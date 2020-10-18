@@ -33,19 +33,19 @@ export default {
     
         const orphanagesRepository = getRepository(Orphanage);
 
-        const RequestImages = request.files as Express.Multer.File[];
+        // const RequestImages = request.files as Express.Multer.File[];
 
-        const images = RequestImages.map(image => {
-            return {
-              path: image.filename
-            };
-          })     
+        // const images = RequestImages.map(image => {
+        //     return {
+        //       path: image.filename
+        //     };
+        //   })     
 
         const data = { name, latitude, longitude, about,
             instructions, opening_hours, 
             open_on_weekends: open_on_weekends === 'true', 
-            whatsapp,
-            images
+            whatsapp
+            // ,images
         };
 
         const schema = Yup.object().shape({
@@ -56,12 +56,12 @@ export default {
             instructions: Yup.string().required(),
             opening_hours: Yup.string().required(),
             open_on_weekends: Yup.boolean().required(),
-            whatsapp: Yup.string().notRequired(),
-            images: Yup.array(
-                Yup.object().shape({
-                    path: Yup.string().required()
-                })
-            )
+            whatsapp: Yup.string().notRequired()
+            // ,images: Yup.array(
+            //     Yup.object().shape({
+            //         path: Yup.string().required()
+            //     })
+            // )
         });
 
         await schema.validate(data, { abortEarly: false });
@@ -70,8 +70,54 @@ export default {
 
         await orphanagesRepository.save(orphanage);
 
+        console.log(orphanage);
+        
+        return response.status(201).json(orphanage);
+    },
+
+    async updateImage (request: Request, response: Response) {
+
+        const { id } = request.params;
+           
+        const orphanagesRepository = getRepository(Orphanage);
+
+        const orphanage = await orphanagesRepository.findOneOrFail({
+            where: { id }
+          });
+
+        console.log(id);
+
+        const RequestImages = request.files as Express.Multer.File[];
+
+        const images = RequestImages.map(image => {
+            return {
+              path: image.filename
+            };
+          })     
+
+          const { name, latitude, longitude, about, whatsapp,
+            instructions, opening_hours, open_on_weekends } = orphanage;
+
+          const updateorphanage = { name, latitude, longitude, about,
+            instructions, opening_hours, 
+            open_on_weekends: open_on_weekends, 
+            whatsapp, images
+        };
+
+
+        
+
+        orphanagesRepository.save({
+            ...orphanage, // existing fields
+            ...updateorphanage // updated fields
+          });
+
+        console.log(orphanage);
+
         return response.status(201).json(orphanage);
     }
+
+    
 }
 
 

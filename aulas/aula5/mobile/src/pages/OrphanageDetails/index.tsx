@@ -41,22 +41,22 @@ export default function OrphanageDetails() {
   useEffect(()  =>  {
     api.get(`orphanages/${params.id}`).then(response => {
  
+      setOrphanage(response.data);
+      // setTimeout(function () {
+      //   if (response.data != undefined) {
 
-      setTimeout(function () {
-        if (response.data != undefined) {
+            
+      //       alert('VIDEO HAS STOPPED');
+      //   }
+      // }, 5000);
 
-            setOrphanage(response.data);
-            alert('VIDEO HAS STOPPED');
-        }
-      }, 5000);
-
-      console.log("timeout");
+      // console.log("timeout");
     });
   }, [params.id]);
 
   if (!orphanage) {
     return (
-      <AppLoading />
+      <View><Text style={styles.title}>Carregando.. </Text></View>
     );
   }
 

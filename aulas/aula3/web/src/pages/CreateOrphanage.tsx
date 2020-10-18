@@ -10,6 +10,7 @@ import Sidebar from "../components/Sidebar";
 
 import mapIcon from '../utils/mapIcon';
 import api from "../services/api";
+import { toast } from 'react-toastify'
 
 export default function CreateOrphanage() {
 
@@ -55,26 +56,34 @@ export default function CreateOrphanage() {
 
     const { latitude, longitude } = position;
 
-    const data =  new FormData();
+    try {
 
-    data.append('name', name);
-    data.append('about', about);
-    data.append('latitude', String(latitude));
-    data.append('longitude', String(longitude));
-    data.append('instructions', instructions);
-    data.append('opening_hours', opening_hours);
-    data.append('whatsapp', String(whatsapp));
-    data.append('open_on_weekends', String(open_on_weekends));
+      await api.post('orphanages', {name, latitude, longitude, about, whatsapp,
+      instructions, opening_hours, open_on_weekends}).then(response => {
 
-    images.forEach(image => {
-      data.append('images', image);
-    });
+        const { id } = response.data;
 
-    await api.post('orphanages', data);
+        const dataimg =  new FormData();
+    
+        images.forEach(image => {
+          dataimg.append('images', image);
+        });
+    
+   
+        api.put(`orphanages/${id}`, dataimg);
+    
+        toast.success(
+          'Cadastro realizado com sucesso!',
+        );
+    
+        history.push('/app');   
 
-    alert('Cadastro realizado com sucesso!');
+      });
 
-    history.push('/app');    
+    } catch(e) {
+      toast.error('Ocorreu um erro ao fazer o cadastro');
+    }
+
   }
   
   return (
