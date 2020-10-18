@@ -19,6 +19,7 @@ export default function CreateOrphanage() {
 
   const [name, setName] = useState('');
   const [about, setAbout] = useState('');
+  const [whatsapp, setWhatsApp] = useState('');
   const [instructions, setInstructions] = useState('');
   const [opening_hours, setOpeningHours] = useState('');
   const [open_on_weekends, setOpenOnWeekends] = useState(true);
@@ -62,6 +63,7 @@ export default function CreateOrphanage() {
     data.append('longitude', String(longitude));
     data.append('instructions', instructions);
     data.append('opening_hours', opening_hours);
+    data.append('whatsapp', String(whatsapp));
     data.append('open_on_weekends', String(open_on_weekends));
 
     images.forEach(image => {
@@ -120,6 +122,15 @@ export default function CreateOrphanage() {
                 maxLength={300}
                 value={about}
                 onChange={event => setAbout(event.target.value)}
+              />
+            </div>
+
+            <div className="input-block">
+              <label htmlFor="name">Whatsapp</label>
+              <input
+                id="Whatsapp"
+                value={whatsapp}
+                onChange={event => setWhatsApp(event.target.value)}
               />
             </div>
 

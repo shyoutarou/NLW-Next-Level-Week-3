@@ -15,8 +15,9 @@ export class createOrphanages1602636892573 implements MigrationInterface {
                   precision: 10, scale: 2, },
                 { name: 'about', type: 'text'},
                 { name: 'instructions', type: 'text' },
-                { name: 'opening_hours', type: 'varchar' },
-                { name: 'open_on_weekends', type: 'boolean', default: false }                
+                { name: 'opening_hours', type: 'varchar' },              
+                { name: 'open_on_weekends', type: 'boolean', default: false },
+                { name: 'whatsapp', type: 'varchar', isNullable:true}
             ]
         }));
     }

@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Image, View, ScrollView, Text, StyleSheet, Dimensions, Linking } from 'react-native';
+import { Image, View, ScrollView, Text, Linking } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 import { Feather, FontAwesome } from '@expo/vector-icons';
 import { useRoute } from '@react-navigation/native';
 
 import mapMarker from '../../../assets/images/map-marker.png'
 import { RectButton, TouchableOpacity } from 'react-native-gesture-handler';
+import { AppLoading } from 'expo'
 
 import styles from './styles'
 import api from '../../services/api';
@@ -23,6 +24,7 @@ interface Orphanage {
   instructions: string;
   opening_hours: string;
   open_on_weekends: boolean;
+  whatsapp: string;
   images: Array<{
     id: number;
     url: string;
@@ -36,17 +38,25 @@ export default function OrphanageDetails() {
 
   const params = route.params as OrphanageDetailsRouteParams;
 
-  useEffect(() => {
+  useEffect(()  =>  {
     api.get(`orphanages/${params.id}`).then(response => {
-      setOrphanage(response.data);
+ 
+
+      setTimeout(function () {
+        if (response.data != undefined) {
+
+            setOrphanage(response.data);
+            alert('VIDEO HAS STOPPED');
+        }
+      }, 5000);
+
+      console.log("timeout");
     });
   }, [params.id]);
 
   if (!orphanage) {
     return (
-      <View style={styles.container}>
-        <Text style={styles.description}>Carregando...</Text>
-      </View>
+      <AppLoading />
     );
   }
 
@@ -54,6 +64,12 @@ export default function OrphanageDetails() {
     Linking.openURL(`https://www.google.com/maps/dir/?api=1&destination=${orphanage?.latitude},${orphanage?.longitude}`);
   }
   
+  
+  function handleLinkToWhatsapp() {
+    Linking.openURL(`whatsapp://send?phone=${orphanage?.whatsapp}`);
+  }
+
+
   return (
     <ScrollView style={styles.container}>
       <View style={styles.imagesContainer}>
@@ -124,10 +140,10 @@ export default function OrphanageDetails() {
           )}
         </View>
 
-        {/* <RectButton style={styles.contactButton} onPress={() => {}}>
+        <RectButton style={styles.contactButton} onPress={handleLinkToWhatsapp}>
           <FontAwesome name="whatsapp" size={24} color="#FFF" />
           <Text style={styles.contactButtonText}>Entrar em contato</Text>
-        </RectButton> */}
+        </RectButton>
       </View>
     </ScrollView>
   )
