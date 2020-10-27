@@ -25,6 +25,6 @@ O NodeJS tem que ser versão 12 ou superior, para consultar digite:
 node -v
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/shyoutarou/NLW-Next-Level-Week-3/master/.github/nodeversion.png" alt="Image" width="200px" />
+  <img src="https://raw.githubusercontent.com/shyoutarou/NLW-Next-Level-Week-3/master/.github/nodeversion.png" alt="Image" width="500px" />
 </p>
 
