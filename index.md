@@ -1,7 +1,8 @@
 # NLW-Next-Level-Week #3
 
 <ul>
-{% for post in site.posts %}
+{% assign aulas = site.posts | sort: 'title' %}
+{% for post in aulas %}
 <li>
 <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
 </li>
