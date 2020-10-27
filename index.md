@@ -1,5 +1,12 @@
 # NLW-Next-Level-Week #3
-# Aula 1 (12/10/2020): Proffy-Web
+
+<ul>
+{% for post in site.posts %}
+<li>
+<a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+</li>
+{% endfor %}
+</ul>
 
 Durante o evento Next Level Week #3, foi desenvolvido a projeto Happy, que é uma plataforma de visita a orfanatos, conectando pacientes com volutanriado para realizar visitas online, tendo um mapa para vários serviços que acolhem Crianças e Adolescentes com seus horários disponíveis para que os pacientes possam receber visitas de maneira adequada. Trazendo uma representação e homenagem para o dia das crianças, que é comemorado no dia 12 de outubro no Brasil.
 
