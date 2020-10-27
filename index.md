@@ -2,7 +2,7 @@
 
 <ul>
 {% assign aulas = site.posts | sort: 'title' %}
-{% for post in aulas %}
+{% for post in site.posts  reversed  %}
 <li>
 <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
 </li>
