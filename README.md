@@ -1,5 +1,7 @@
 # NLW-Next-Level-Week #3
 
+[GitHub Page](https://shyoutarou.github.io/NLW-Next-Level-Week-3/)
+
 <p align="center">
   <img src="https://raw.githubusercontent.com/shyoutarou/NLW-Next-Level-Week-3/master/.github/demo.gif" alt="NLW Intro" width="650px" />
 </p>
@@ -249,6 +251,30 @@ Siga os passos abaixo para contribuir:
 6. Crie um novo *Pull Request*
 
 7. Pronto, agora só aguardar a análise 🚀 
+
+
+## Agradecimentos
+
+<div align=center>
+  <table style="width:100%">
+    <tr align=center>
+      <th><strong>Rocketseat</strong></th>
+      <th><strong>diego3g</strong></th>
+    </tr>
+    <tr align=center>
+      <td>
+        <a href="https://rocketseat.com.br/">
+          <img width="200" height="180" src="https://user-images.githubusercontent.com/38081852/83981650-1e2e6680-a8f6-11ea-9f42-6df8fe809e4b.png">
+        </a>
+      </td>
+      <td>
+        <a href="https://github.com/diego3g">
+          <img width="200" height="180" src="https://user-images.githubusercontent.com/38081852/83981712-b7f61380-a8f6-11ea-9099-bd3677e97e39.jpg">
+        </a>
+      </td>
+    </tr>
+  </table>
+</div>
 
 ## 📜 License
 
